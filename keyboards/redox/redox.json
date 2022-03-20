@@ -1,0 +1,11 @@
+{
+    "name": "REDOX GTHELL",
+    "vendorId": "0x5241",
+    "productId": "0x006a",
+    "lighting": "none",
+    "matrix": { "rows": 10, "cols": 14 },
+    "layouts": {
+        "keymap": [
+        ]
+    }
+}
