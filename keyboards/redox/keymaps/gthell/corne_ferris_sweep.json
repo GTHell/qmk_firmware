@@ -62,7 +62,7 @@
       "RALT_T(KC_COMM)",
       "RCTL_T(KC_DOT)",
       "KC_SLSH",
-      "KC_ESC",
+      "KC_LSFT",
       "LT(2,KC_DEL)",
       "KC_PPLS",
       "KC_PMNS",
@@ -73,7 +73,7 @@
       "MO(2)",
       "LT(10,KC_ENT)",
       "MO(1)",
-      "KC_RALT",
+      "KC_LEFT",
       "KC_DOWN",
       "KC_UP",
       "KC_RGHT"
@@ -314,7 +314,7 @@
       "KC_R",
       "KC_T",
       "KC_TRNS",
-      "KC_TRNS",
+      "TO(0)",
       "KC_Y",
       "KC_U",
       "KC_I",
@@ -361,10 +361,10 @@
       "KC_ENT",
       "KC_ENT",
       "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "KC_TRNS",
-      "TO(0)"
+      "KC_LEFT",
+      "KC_UP",
+      "KC_DOWN",
+      "KC_RGHT"
     ],
     [
       "KC_TRNS",
