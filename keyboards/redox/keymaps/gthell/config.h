@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 // Increase layer count to support extra layers
-#define DYNAMIC_KEYMAP_LAYER_COUNT 11
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // custom config
 // #undef TAPPING_TERM
-#define TAPPING_TERM 200
+#define TAPPING_TERM 150
 #define IGNORE_MOD_TAP_INTERRUPT
 // #define TAPPING_FORCE_HOLD
 // #undef PERMISSIVE_HOLD
