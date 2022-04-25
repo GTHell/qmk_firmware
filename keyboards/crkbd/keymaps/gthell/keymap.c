@@ -18,6 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+char wpm_str[10];
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -69,7 +71,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-#ifdef OLED_ENABLE
+// #ifdef OLED_ENABLE
+#ifdef OLED_TEST
 #include <stdio.h>
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -149,6 +152,7 @@ void render_bootmagic_status(bool status) {
     }
 }
 
+
 void oled_render_logo(void) {
     static const char PROGMEM crkbd_logo[] = {
         0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d, 0x8e, 0x8f, 0x90, 0x91, 0x92, 0x93, 0x94,
@@ -158,12 +162,23 @@ void oled_render_logo(void) {
     oled_write_P(crkbd_logo, false);
 }
 
+void oled_render_wpm(void) {
+    char wpm_str[6];
+    // itoa(get_current_wpm(), wpm_str, 10);
+    // oled_write_P(wpm_str, false);
+
+    oled_set_cursor(0, 0);                            // sets cursor to (row, column) using charactar spacing (5 rows on 128x32 screen, anything more will overflow back to the top)
+    sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up
+    oled_write(wpm_str, false);
+}
+
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
     } else {
-        oled_render_logo();
+        // oled_render_logo();
+        // oled_render_wpm();
     }
     return false;
 }
@@ -171,6 +186,8 @@ bool oled_task_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     set_keylog(keycode, record);
+    extern uint32_t tap_timer;
+    tap_timer = timer_read32();
   }
   return true;
 }
