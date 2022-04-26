@@ -192,3 +192,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 #endif // OLED_ENABLE
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        extern uint32_t tap_timer;
+        tap_timer = timer_read32();
+    }
+    return true;
+}
