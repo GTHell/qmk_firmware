@@ -1,0 +1,11 @@
+MOUSEKEY_ENABLE = no     # Mouse keys
+RGBLIGHT_ENABLE = no    # Enable WS2812 RGB underlight.
+RGB_MATRIX_ENABLE = yes # Allow RGB underlight to be controlled by a separate script.
+VIA_ENABLE      = yes    # Enable VIA
+OLED_ENABLE     = no
+LTO_ENABLE      = yes
+WPM_ENABLE      = no
+# SRC += oled-bongocat.c
+# OPT_DEFS += -DLEFTCAT
+COMBO_ENABLE = yes
+# TAP_DANCE_ENABLE = yes
