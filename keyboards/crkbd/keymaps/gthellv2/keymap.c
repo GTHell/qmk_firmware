@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
 KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G,  KC_H, KC_J, KC_K, KC_L, KC_SCLN/*TD(TD_SCLN)*/, KC_QUOT,
 KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ESC,
-                KC_LGUI, LT(1,KC_TAB), KC_SPC, KC_ENT, MO(2), KC_RALT),
+                KC_LGUI, LT(1,KC_TAB), KC_SPC, LSFT(KC_ENT), MO(2), KC_RALT),
 
 
 [1] = LAYOUT_split_3x6_3(
@@ -83,6 +83,35 @@ enum combo_events {
     SCLNM_LCBR,
     SCLNCOM_RCBR,
 
+    // Symbol
+    MK_FSLS,
+    JCOMM_BSLS,
+    MI_PIPE,
+    JIL_CARET,
+    LI_BTICK,
+    KO_TILD,
+    MKDOT_PERC,
+
+    UIL_BANG,
+    JKO_QUEST,
+    MCOMML_DOLLAR,
+
+    UKL_AT,
+    JKLSCLN_AND,
+    MDOT_STAR,
+    UO_HASH,
+
+    // ======== right hand ========
+    DF_ENT,
+    ER_TAB,
+    CV_ESC,
+    SD_ESC,
+
+    // modifier
+    ZX_CMD,
+    AS_LCTL,
+    QW_LSFT,
+
     COMBO_LENGTH
 };
 
@@ -98,12 +127,40 @@ const uint16_t PROGMEM jk_mins[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM mcom_unds[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM jl_plus[] = {KC_J, KC_L, COMBO_END};
 
-const uint16_t PROGMEM sclnu_lbrc[] = {KC_SCLN, KC_U, COMBO_END};
-const uint16_t PROGMEM sclni_rbrc[] = {KC_SCLN, KC_I, COMBO_END};
+// Parenthese
+const uint16_t PROGMEM sclnu_lbrc[] = {KC_P, KC_U, COMBO_END};
+const uint16_t PROGMEM sclni_rbrc[] = {KC_P, KC_I, COMBO_END};
 const uint16_t PROGMEM sclnj_lprn[] = {KC_SCLN, KC_J, COMBO_END};
 const uint16_t PROGMEM sclnk_rprn[] = {KC_SCLN, KC_K, COMBO_END};
-const uint16_t PROGMEM sclnm_lcbr[] = {KC_SCLN, KC_M, COMBO_END};
-const uint16_t PROGMEM sclncom_rcbr[] = {KC_SCLN, KC_COMM, COMBO_END};
+const uint16_t PROGMEM sclnm_lcbr[] = {KC_SLSH, KC_M, COMBO_END};
+const uint16_t PROGMEM sclncom_rcbr[] = {KC_SLSH, KC_COMM, COMBO_END};
+
+// symbol
+const uint16_t PROGMEM mk_fsls[] = {KC_M, KC_K, COMBO_END};
+const uint16_t PROGMEM jcomm_bsls[] = {KC_J, KC_COMM, COMBO_END};
+const uint16_t PROGMEM mi_pipe[] = {KC_M, KC_I, COMBO_END};
+const uint16_t PROGMEM jil_caret[] = {KC_J, KC_I, COMBO_END};
+const uint16_t PROGMEM li_btick[] = {KC_L, KC_I, COMBO_END};
+const uint16_t PROGMEM ko_tild[] = {KC_K, KC_O, COMBO_END};
+const uint16_t PROGMEM mkdot_perc[] = {KC_M, KC_DOT, COMBO_END};
+
+const uint16_t PROGMEM uil_bang[] = {KC_U, KC_I, KC_L, COMBO_END};
+const uint16_t PROGMEM jko_quest[] = {KC_J, KC_K, KC_O, COMBO_END};
+const uint16_t PROGMEM mcomml_dollar[] = {KC_M, KC_COMM, KC_L, COMBO_END};
+const uint16_t PROGMEM ukl_at[] = {KC_U, KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM jklscln_and[] = {KC_J, KC_K, KC_L, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM mdot_star[] = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM uo_hash[] = {KC_U, KC_O, COMBO_END};
+
+// right hand
+const uint16_t PROGMEM df_ent[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM er_tab[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM cv_esc[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM sd_esc[] = {KC_S, KC_D, COMBO_END};
+
+const uint16_t PROGMEM zx_cmd[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM as_lctl[] = {KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM qw_lsft[] = {KC_Q, KC_W, COMBO_END};
 
 combo_t key_combos[] = {
     [LANG_COMB] = COMBO(test_combo1, KC_DOT),
@@ -125,6 +182,32 @@ combo_t key_combos[] = {
     [SCLNM_LCBR] = COMBO(sclnm_lcbr, KC_LCBR),
     [SCLNCOM_RCBR] = COMBO(sclncom_rcbr, KC_RCBR),
 
+    // symbol
+    [MK_FSLS] = COMBO(mk_fsls, KC_SLSH),
+    [JCOMM_BSLS] = COMBO(jcomm_bsls, KC_BSLS),
+    [MI_PIPE] = COMBO(mi_pipe, KC_PIPE),
+    [JIL_CARET] = COMBO(jil_caret, KC_CIRC),
+    [LI_BTICK] = COMBO(li_btick, KC_GRV),
+    [KO_TILD] = COMBO(ko_tild, KC_TILD),
+    [MKDOT_PERC] = COMBO(mkdot_perc, KC_PERC),
+
+    [UIL_BANG] = COMBO(uil_bang, KC_EXLM),
+    [JKO_QUEST] = COMBO(jko_quest, KC_QUES),
+    [MCOMML_DOLLAR] = COMBO(mcomml_dollar, KC_DLR),
+    [UKL_AT] = COMBO(ukl_at, KC_AT),
+    [JKLSCLN_AND] = COMBO(jklscln_and, KC_AMPR),
+    [MDOT_STAR] = COMBO(mdot_star, KC_ASTR),
+    [UO_HASH] = COMBO(uo_hash, KC_HASH),
+
+    // complete right hand
+    [DF_ENT] = COMBO(df_ent, KC_ENT),
+    [SD_ESC] = COMBO(sd_esc, KC_ESC),
+    [ER_TAB] = COMBO(er_tab, KC_TAB),
+    [CV_ESC] = COMBO(cv_esc, KC_ESC),
+
+    [ZX_CMD] = COMBO(zx_cmd, KC_LGUI),
+    [AS_LCTL] = COMBO(as_lctl, KC_LCTL),
+    [QW_LSFT] = COMBO(qw_lsft, KC_LSFT),
 };
 
 // combo_t key_combos[] = {
