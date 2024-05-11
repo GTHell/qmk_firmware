@@ -1,12 +1,3 @@
-# Anne Pro 2
-SRC = \
-	matrix.c \
-	annepro2_ble.c \
-	ap2_led.c \
-	protocol.c \
-	rgb_driver.c \
-	config_led.c
-
 # MCU
 MCU = cortex-m0plus
 ARMV = 6
@@ -18,23 +9,30 @@ MCU_STARTUP = ht32f523xx
 
 BOARD = ANNEPRO2_C18
 
-# Options
+# Bootloader selection
+BOOTLOADER = custom
+PROGRAM_CMD = annepro2_tools --boot $(BUILD_DIR)/$(TARGET).bin
+
+# Build Options
+#   change yes to no to disable
+#
+BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
+MOUSEKEY_ENABLE = no        # Mouse keys
+EXTRAKEY_ENABLE = yes       # Audio control and System control
+CONSOLE_ENABLE = no         # Console for debug
+COMMAND_ENABLE = no         # Commands for debug and configuration
+NKRO_ENABLE = no            # Enable N-Key Rollover
+
+# Custom RGB matrix handling
+RGB_MATRIX_ENABLE = yes
 
 # Keys
 CUSTOM_MATRIX = lite
-NKRO_ENABLE = no
-MOUSEKEY_ENABLE = no
-EXTRAKEY_ENABLE = yes
-KEY_LOCK_ENABLE = no
-LAYOUTS = 60_ansi
 
-# Other featues
-BOOTMAGIC_ENABLE = yes
-CONSOLE_ENABLE = no
-COMMAND_ENABLE = no
-RAW_ENABLE = no
-MIDI_ENABLE = no
-VIRTSER_ENABLE = no
-COMBO_ENABLE = no
-BOOTLOADER = custom
-PROGRAM_CMD = annepro2_tools --boot $(BUILD_DIR)/$(TARGET).bin
+# Anne Pro 2
+SRC = \
+	matrix.c \
+	annepro2_ble.c \
+	ap2_led.c \
+	protocol.c \
+	rgb_driver.c \

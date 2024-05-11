@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+<<<<<<< HEAD
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
@@ -52,17 +53,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* serial.c configuration for split keyboard */
 #define SOFT_SERIAL_PIN D2
 
+=======
+>>>>>>> a8e9d4f2078795f1f51a06c4fb88cff3c475fca2
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
-
-/* ws2812 RGB LED */
-#define RGB_DI_PIN D3
-
-#define RGBLED_NUM 14    // Number of LEDs
-
-#define RGBLIGHT_SPLIT   // sync LEDs between RIGHT and LEFT hand
 
 /*
  * Feature disable options
